@@ -1,2 +1,13 @@
-- name: Prettier Action
-  uses: creyD/prettier_action@v4.3
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prettier Action
+        uses: creyD/prettier_action@v4.3
