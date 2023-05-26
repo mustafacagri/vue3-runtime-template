@@ -6,5 +6,5 @@ import testPlugin from "./test.plugin.js"; //testing mixins
 Vue.use(testPlugin);
 
 new Vue({
-    render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
