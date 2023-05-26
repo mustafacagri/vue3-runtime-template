@@ -8,8 +8,8 @@
     "build": "microbundle index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:lint": "npx prettier --check .",
+    "test:unit": "vitest",
     "fix:lint": "npx prettier --write ."
-
   },
   "repository": {
     "type": "git",
@@ -34,10 +34,14 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
     "acorn": "^8.8.2",
     "eslint-config-suade": "^4.0.1",
     "microbundle": "^0.15.1",
-    "prettier": "2.8.8"
+    "prettier": "2.8.8",
+    "vite": "^4.3.9",
+    "vitest": "^0.31.1",
+    "vue": "^3.3.4"
   },
   "bugs": {
     "url": "https://github.com/mattelen/vue3-runtime-template/issues"
@@ -47,9 +51,6 @@
   "unpkg": "dist/vue3-runtime-template.umd.js",
   "browser": "dist/vue3-runtime-template.es.js",
   "types": "vue3-runtime-template.d.ts",
-  "dependencies": {
-    "vue": "^3.0.0"
-  },
   "eslintConfig": {
     "extends": "suade/prettier"
   },
