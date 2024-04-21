@@ -1,6 +1,6 @@
 # vue3-runtime-template-next
 
-## Attention
+Test: https://vue3-runtime-template-test.web.app/
 
 Test repo: https://github.com/mustafacagri/vue3-runtime-template-test
 
@@ -39,7 +39,7 @@ Consider a scenario where you're working on a Vue 3 project and you intend to in
   </div>
 ```
 
---------
+---
 
 [![npm](https://img.shields.io/npm/v/vue3-runtime-template-next.svg)](https://www.npmjs.com/package/vue3-runtime-template-next)
 
@@ -109,33 +109,34 @@ In [Nuxt v3](https://v3.nuxtjs.org/), open the `nuxt.config.js` file and extend 
 ```
 
 You can read about different bundles of Vue in the official [help guides](https://v3.vuejs.org/guide/installation.html#with-a-bundler).
+
 ## Usage
 
 You just need to import the `vue3-runtime-template` component, and pass the template you want:
 
 ```html
 <template>
-	<div>
-		<v-runtime-template :template="template"></v-runtime-template>
-	</div>
+  <div>
+    <v-runtime-template :template="template"></v-runtime-template>
+  </div>
 </template>
 
 <script>
-import VRuntimeTemplate from "vue3-runtime-template";
-import AppMessage from "./AppMessage";
+  import VRuntimeTemplate from "vue3-runtime-template";
+  import AppMessage from "./AppMessage";
 
-export default {
-  data: () => ({
-    name: "Mellow",
-    template: `
+  export default {
+    data: () => ({
+      name: "Mellow",
+      template: `
       <app-message>Hello {{ name }}!</app-message>
-    `
-  }),
-  components: {
-    AppMessage,
-    VRuntimeTemplate
-  }
-};
+    `,
+    }),
+    components: {
+      AppMessage,
+      VRuntimeTemplate,
+    },
+  };
 </script>
 ```
 
@@ -207,7 +208,7 @@ If you have custom components, such as `YourComponent`, and you're using `vue3-r
 
 ### Register YourComponent
 
-   In your main entry file, typically `main.js` or `main.ts`, ensure that your custom component, like `YourComponent`, is registered globally using `app.component`. For example:
+In your main entry file, typically `main.js` or `main.ts`, ensure that your custom component, like `YourComponent`, is registered globally using `app.component`. For example:
 
 ```
 import { createApp } from 'vue';
@@ -231,7 +232,7 @@ Utilize `vue3-runtime-template` to dynamically render templates, including your 
 <template>
   <div>
     <!-- VRuntimeTemplate with YourComponent -->
-    <VRuntimeTemplate 
+    <VRuntimeTemplate
       :template="yourTemplateString"
       :templateProps="{
         YourComponent
