@@ -1,8 +1,49 @@
-# vue3-runtime-template
+# vue3-runtime-template-next
 
-[![npm](https://img.shields.io/npm/v/vue3-runtime-template.svg)](https://www.npmjs.com/package/vue3-runtime-template)
+## Attention
 
-[![npm](https://img.shields.io/npm/dm/vue3-runtime-template.svg)](https://www.npmjs.com/package/vue3-runtime-template)
+Test repo: https://github.com/mustafacagri/vue3-runtime-template-test
+
+This project serves as a test environment for visualizing the `vue3-runtime-template-next` package. The motivation behind this initiative lies in the fact that the original repository has not been updated since 2021. Consequently, using the previous version might pose challenges due to potential bugs that remain unfixed. Hence, I decided to create this new repository to address and contribute to these issues.
+
+The primary reason for establishing this repository stems from the limitations of the previous one. In the previous setup, we could directly utilize variables within the template. However, my requirement extended to utilizing these variables not only in the immediate component but also in its grandchildren components.
+
+The former approach functioned correctly:
+
+`Hello my name is: {{ name }}`
+
+What about this one?
+
+`Hello my name is: <MyPrettyComponent value='name' />`
+
+As you can observe, we attempt to employ the variable within the grandchild component. However, this approach fails to yield the desired outcome. Consequently, I established this repository to rectify this issue.
+
+The main solution lies in utilizing `provide` to propagate data or variables to child components, and subsequently employing `inject` within these child components to retrieve the transferred data.
+
+Additionally, there's a significant advantage for us. You won't need to transfer the data back to the parent anymore, as both the form and formErrors are now reactive. Consequently, whenever you update a value in the child component, the corresponding values in the parent will be promptly updated as well.
+
+The Real World Example
+Consider a scenario where you're working on a Vue 3 project and you intend to integrate templates fetched from an API:
+
+```
+  <div class="row">
+    <div class="col">
+      <mc-input name="firstname" placeholder="Firstname" :required="true" />
+    </div>
+    <div class="col">
+      <mc-input name="lastname" placeholder="Lastname" :required="true" />
+    </div>
+    <div class="col">
+      <mc-input name="city" placeholder="City" />
+    </div>
+  </div>
+```
+
+--------
+
+[![npm](https://img.shields.io/npm/v/vue3-runtime-template-next.svg)](https://www.npmjs.com/package/vue3-runtime-template-next)
+
+[![npm](https://img.shields.io/npm/dm/vue3-runtime-template-next.svg)](https://www.npmjs.com/package/vue3-runtime-template-next)
 
 A Vue.js components that makes easy compiling and interpreting a Vue.js template at runtime by using a `v-html` like API.
 
