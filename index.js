@@ -1,4 +1,4 @@
-import {h} from 'vue';
+import { h, provide } from "vue";
 
 const defineDescriptor = (src, dest, name) => {
   // eslint-disable-next-line no-prototype-builtins
@@ -13,7 +13,7 @@ const merge = (objs) => {
   objs.forEach((obj) => {
     obj &&
       Object.getOwnPropertyNames(obj).forEach((name) =>
-        defineDescriptor(obj, res, name),
+        defineDescriptor(obj, res, name)
       );
   });
   return res;
@@ -34,6 +34,11 @@ export default {
       default: () => ({}),
     },
   },
+  setup(props) {
+    Object.keys(props.templateProps).forEach((key) => {
+      provide(key, props.templateProps[key]);
+    });
+  },
   render() {
     if (this.template) {
       const parent = this.parent || this.$parent;
@@ -50,7 +55,7 @@ export default {
       const {
         $data = {},
         $props = {},
-        $options: {methods = {}, computed = {}, components = {}} = {},
+        $options: { methods = {}, computed = {}, components = {} } = {},
       } = this;
       const passthrough = {
         $data: {},
@@ -63,27 +68,27 @@ export default {
 
       // build new objects by removing keys if already exists (e.g. created by mixins)
       Object.keys(parentData).forEach((e) => {
-        if (typeof $data[e] === 'undefined') {
+        if (typeof $data[e] === "undefined") {
           passthrough.$data[e] = parentData[e];
         }
       });
       Object.keys(parentProps).forEach((e) => {
-        if (typeof $props[e] === 'undefined') {
+        if (typeof $props[e] === "undefined") {
           passthrough.$props[e] = parentProps[e];
         }
       });
       Object.keys(parentMethods).forEach((e) => {
-        if (typeof methods[e] === 'undefined') {
+        if (typeof methods[e] === "undefined") {
           passthrough.methods[e] = parentMethods[e];
         }
       });
       Object.keys(parentComputed).forEach((e) => {
-        if (typeof computed[e] === 'undefined') {
+        if (typeof computed[e] === "undefined") {
           passthrough.computed[e] = parentComputed[e];
         }
       });
       Object.keys(parentComponents).forEach((e) => {
-        if (typeof components[e] === 'undefined') {
+        if (typeof components[e] === "undefined") {
           passthrough.components[e] = parentComponents[e];
         }
       });
@@ -92,7 +97,10 @@ export default {
       const dataKeys = Object.keys(passthrough.$data || {});
       const propKeys = Object.keys(passthrough.$props || {});
       const templatePropKeys = Object.keys(this.templateProps);
-      const allKeys = dataKeys.concat(propKeys).concat(methodKeys).concat(templatePropKeys);
+      const allKeys = dataKeys
+        .concat(propKeys)
+        .concat(methodKeys)
+        .concat(templatePropKeys);
       const methodsFromProps = buildFromProps(parent, methodKeys);
       const finalProps = merge([
         passthrough.$data,
@@ -104,15 +112,15 @@ export default {
       const provide = this.$parent.$.provides ? this.$parent.$.provides : {}; // Avoids Vue warning
 
       const dynamic = {
-        template: this.template || '<div></div>',
+        template: this.template || "<div></div>",
         props: allKeys,
         computed: passthrough.computed,
         components: passthrough.components,
-        provide: provide,
+        // provide: provide,
       };
       // debugger;
 
-      return h(dynamic, {...finalProps});
+      return h(dynamic, { ...finalProps });
     }
   },
 };

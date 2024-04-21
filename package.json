@@ -1,9 +1,10 @@
 {
-  "name": "vue3-runtime-template",
-  "version": "1.0.2",
+  "name": "vue3-runtime-template-next",
+  "version": "1.0.0",
   "description": "Create Vue 3 components by compiling templates on the fly",
   "main": "dist/vue3-runtime-template.umd.js",
   "scripts": {
+    "build-library": "npm run build --target lib --name vue3-runtime-template-next --mode production",
     "prepublishOnly": "npm run build",
     "build": "microbundle index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -43,6 +44,6 @@
   "browser": "dist/vue3-runtime-template.es.js",
   "types": "vue3-runtime-template.d.ts",
   "dependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.4.23"
   }
 }
