@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattelen/vue3-runtime-template.git"
+    "url": "git+https://github.com/mustafacagri/vue3-runtime-template-next.git"
   },
   "keywords": [
     "vuejs",
@@ -21,13 +21,13 @@
     "template"
   ],
   "author": {
-    "name": "Alex J",
-    "email": "alexjovermorales@gmail.com"
+    "name": "Mustafa Çağrı",
+    "email": "me@mustafacagri.com"
   },
   "contributors": [
     {
-      "name": "Matt Elen",
-      "url": "https://github.com/mattelen"
+      "name": "Mustafa Çağrı",
+      "url": "https://github.com/mustafacagri"
     }
   ],
   "license": "MIT",
@@ -36,9 +36,9 @@
     "microbundle": "^0.11.0"
   },
   "bugs": {
-    "url": "https://github.com/mattelen/vue3-runtime-template/issues"
+    "url": "https://github.com/mustafacagri/vue3-runtime-template-next/issues"
   },
-  "homepage": "https://github.com/mattelen/vue3-runtime-template#readme",
+  "homepage": "https://github.com/mustafacagri/vue3-runtime-template-next#readme",
   "module": "dist/vue3-runtime-template.es.js",
   "unpkg": "dist/vue3-runtime-template.umd.js",
   "browser": "dist/vue3-runtime-template.es.js",
